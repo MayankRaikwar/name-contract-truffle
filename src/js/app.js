@@ -7,7 +7,7 @@ App = {
   },
 
   initWeb3: function() {
-  	$('.something').text('hello');
+  	//$('.something').text('ttt');
     // Initialize web3 and set the provider to the testRPC.
     if (typeof web3 !== 'undefined') {
       App.web3Provider = web3.currentProvider;
@@ -30,7 +30,7 @@ App = {
 
       // Set the provider for our contract.
       App.contracts.NameContract.setProvider(App.web3Provider);
-     return App.getDefaultName();
+     //return App.getDefaultName();
     });
 
     return App.bindEvents();
@@ -61,7 +61,7 @@ App = {
      	NameContractInstance = instance;
      	return NameContractInstance.setName(newName, {from: account});
      }).then(function(result) {
-        alert('Transfer Successful!');
+        alert('Set Name Successful!');
      }).catch(function(err) {
         console.log(err.message);
      });
@@ -87,6 +87,7 @@ App = {
      	return NameContractInstance.getName({from: account});
      }).then(function(result) {
         alert(result);
+        $('.Current-Name').text(result);
      }).catch(function(err) {
         console.log(err.message);
      });
