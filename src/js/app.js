@@ -45,7 +45,7 @@ App = {
   	event.preventDefault();
 
   	var newName = $('#Name').val();
-  	$(document).find('#Name').text(newName);
+  	//$(document).find('#Name').text(newName);
   	console.log('Setting Name to' + newName);
 
   	var NameContractInstance;
@@ -61,7 +61,10 @@ App = {
      	NameContractInstance = instance;
      	return NameContractInstance.setName(newName, {from: account});
      }).then(function(result) {
+        //$(document).find('#Name').text('');
+        document.getElementById("Name").value="";
         alert('Set Name Successful!');
+
      }).catch(function(err) {
         console.log(err.message);
      });
